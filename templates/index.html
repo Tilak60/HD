@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbeat Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Heartbeat Detection System</h1>
+        <div class="upload-section">
+            <input type="file" id="audioFileInput" accept=".wav, .mp3">
+            <button id="uploadButton">Upload and Analyze</button>
+        </div>
+        <div class="waveform-container">
+            <h2>Waveform Visualization</h2>
+            <div id="waveform"></div>
+        </div>
+        <div class="results-section">
+            <h2>Analysis Results</h2>
+            <p><strong>Predicted Condition:</strong> <span id="predictedCondition">N/A</span></p>
+            <p><strong>Recommendation:</strong> <span id="recommendation">N/A</span></p>
+        </div>
+        <div id="loading" class="hidden">Analyzing...</div>
+        <div id="error" class="hidden error-message"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

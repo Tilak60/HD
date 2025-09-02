@@ -1,0 +1,7 @@
+Flask
+werkzeug
+librosa
+numpy
+scikit-learn
+tensorflow
+resampy
