@@ -56,11 +56,23 @@ def extract_features(file_path, n_mfcc=40):
 
 def get_recommendation(prediction_label):
     recommendations = {
-        "Normal": "Maintain a healthy lifestyle with regular exercise and balanced diet.",
-        "Murmur": "Consider consulting a doctor for further evaluation and maintain daily walking/exercise.",
-        "Noisy": "It is highly recommended to consult a doctor immediately for a detailed check-up."
+        "Normal": [
+            "Maintain a healthy lifestyle with regular exercise and balanced diet.",
+            "Ensure adequate sleep (7-9 hours per night) to support cardiovascular health.",
+            "Manage stress effectively through practices like meditation or yoga."
+        ],
+        "Murmur": [
+            "Consider consulting a doctor for further evaluation and maintain daily walking/exercise.",
+            "Avoid strenuous activities until a medical professional provides clearance.",
+            "Monitor for any new symptoms such as shortness of breath, chest pain, or dizziness."
+        ],
+        "Noisy": [
+            "It is highly recommended to consult a doctor immediately for a detailed check-up.",
+            "Seek emergency medical attention if experiencing severe chest pain, fainting, or extreme difficulty breathing.",
+            "Avoid any self-treatment and follow medical advice strictly."
+        ]
     }
-    return recommendations.get(prediction_label, "Consult a healthcare professional for advice.")
+    return recommendations.get(prediction_label, ["Consult a healthcare professional for advice."])
 
 @app.route('/')
 def index():

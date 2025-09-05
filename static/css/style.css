@@ -1,6 +1,7 @@
+/* General Body and Container Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
+    font-family: 'Poppins', sans-serif; /* A more modern and friendly font */
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Elegant gradient background */
     color: #333;
     margin: 0;
     padding: 20px;
@@ -8,73 +9,171 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 .container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Pure white for a clean look */
+    padding: 40px;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
     width: 100%;
-    max-width: 800px;
+    max-width: 950px; /* Wider container */
     text-align: center;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for the container */
 }
 
-h1, h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.upload-section,
-.waveform-container,
-.results-section {
+/* Headings */
+h1 {
+    color: #6a11cb; /* Primary gradient color */
     margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    background-color: #fdfdfd;
+    font-size: 2.8em;
+    font-weight: 700;
 }
 
+.section-title {
+    font-size: 2em;
+    color: #2575fc; /* Secondary gradient color */
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0; /* Subtle underline */
+    padding-bottom: 10px;
+}
+
+/* Section Card Styling */
+.card-section {
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #f8f9fa; /* Light grey background for cards */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.card-section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Input and Button Styles */
 input[type="file"] {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    margin-right: 10px;
+    border: 1px solid #ced4da; /* Light grey border */
+    padding: 12px;
+    border-radius: 8px;
+    margin-right: 15px;
+    width: calc(100% - 170px); /* Adjust width for button */
+    max-width: 350px;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="file"]:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
+    outline: none;
 }
 
 button {
-    background-color: #28a745;
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Gradient button */
     color: white;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover */
+    letter-spacing: 0.5px;
 }
 
 button:hover {
-    background-color: #218838;
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+button:disabled {
+    background: #cccccc; /* Grey for disabled buttons */
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Audio Player and Recording Styles */
+audio {
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 8px;
+    background-color: #e9ecef; /* Light grey background for audio player */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.audio-recording-section button {
+    margin: 0 10px;
+}
+
+.audio-recording-section a {
+    background: #17a2b8; /* Teal for download link */
+    color: white;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.audio-recording-section a:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+}
+
+/* Waveform Visualization */
 #waveform {
     width: 100%;
-    height: 120px;
-    border: 1px solid #ddd;
-    margin-top: 15px;
-    background-color: #e9ecef;
-    border-radius: 5px;
+    height: 180px; /* Taller waveform */
+    border: 1px solid #a3daff;
+    margin-top: 25px;
+    background-color: #e6f7ff;
+    border-radius: 10px;
 }
 
+/* Results Section */
 .results-section p {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 1.15em;
+    margin: 15px 0;
+    line-height: 1.8;
+    color: #555;
 }
 
 .results-section strong {
-    color: #2c3e50;
+    color: #6a11cb;
+    font-weight: 700;
 }
 
+.recommendations-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.recommendations-list li {
+    background-color: #e9f7ef; /* Light green for recommendations */
+    border-left: 4px solid #28a745; /* Green border */
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Utility Classes */
 .hidden {
     display: none;
 }
@@ -83,4 +182,70 @@ button:hover {
     color: #dc3545;
     font-weight: bold;
     margin-top: 20px;
+    background-color: #f8d7da; /* Light red background */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* How to Use Section */
+.how-to-use-section ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.how-to-use-section li {
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 18px;
+    border-left: 5px solid #2575fc; /* Blue accent */
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-size: 1.05em;
+    line-height: 1.6;
+}
+
+.how-to-use-section li strong {
+    color: #6a11cb;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .audio-recording-section button {
+        margin: 5px 0;
+    }
 }
